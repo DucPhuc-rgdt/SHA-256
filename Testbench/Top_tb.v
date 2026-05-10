@@ -12,6 +12,7 @@ module Top_tb;
     wire busy;
     wire done;
     wire request_next_block;
+    wire [3:0] block_word_index;
     wire [255:0] digest;
 
     reg [511:0] mes_blocks [0:3400]; // tổng số block = 4001 của 132 testcase
@@ -29,6 +30,7 @@ module Top_tb;
         .start(start),
         .last_block(last_block),
         .block_word(block_word),
+        .block_word_index(block_word_index),
         .busy(busy),
         .done(done),
         .digest(digest),
