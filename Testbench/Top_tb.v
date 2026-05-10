@@ -65,7 +65,7 @@ module Top_tb;
 
     always @(*) begin
         if (busy && dut.u_control.MS_LD && dut.u_control.MS_ena) begin
-            block_word = get_block_word(mes_blocks[block_base + current_block], dut.u_control.load_index);
+            block_word = get_block_word(mes_blocks[block_base + current_block], block_word_index);
         end else begin
             block_word = 32'd0;
         end
