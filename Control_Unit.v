@@ -12,7 +12,6 @@ module Control_Unit (
     output Sel_for_WVar,
     output request_next_block,
     output [3:0] load_index,
-    output [5:0] round_index,
     output [5:0] K_index
 );
 
@@ -74,7 +73,6 @@ module Control_Unit (
     assign Sel_for_WVar = (state == Update_WV);
     assign request_next_block = (state == Writeback) && !last_block;
     assign load_index = load_count;
-    assign round_index = round_count;
     assign K_index = round_count;
 
 endmodule

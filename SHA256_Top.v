@@ -7,6 +7,7 @@ module SHA256_Top (
     output busy,
     output done,
     output request_next_block,
+    output [3:0] block_word_index,
     output [255:0] digest
 );
 
@@ -15,8 +16,6 @@ module SHA256_Top (
     wire Ena_InterHash;
     wire Ena_WorkingVar;
     wire Sel_for_WVar;
-    wire [3:0] load_index;
-    wire [5:0] round_index;
     wire [5:0] K_index;
 
     wire [31:0] Kt;
@@ -35,8 +34,7 @@ module SHA256_Top (
         .Ena_WorkingVar(Ena_WorkingVar),
         .Sel_for_WVar(Sel_for_WVar),
         .request_next_block(request_next_block),
-        .load_index(load_index),
-        .round_index(round_index),
+        .load_index(block_word_index),
         .K_index(K_index)
     );
 
